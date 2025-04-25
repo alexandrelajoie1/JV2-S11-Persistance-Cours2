@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,7 @@ public class JeuEspaceV2 : MonoBehaviour
     public int etoiles = 0;
     private int etoilesDebutNiveau;
     public TextMeshProUGUI textEtoiles;
+    public AudioSource sonPortail;
     
     public GameObject fxExplosion;
 
@@ -53,6 +55,12 @@ public class JeuEspaceV2 : MonoBehaviour
         etoilesDebutNiveau = etoiles;
     }
 
+    public void JouerSonPortail()
+    {
+        Debug.Log("jouer portail");
+        sonPortail.Play();
+    }
+
     public void CollecterEtoile()
     {
         // Sommer à la variable
@@ -77,4 +85,6 @@ public class JeuEspaceV2 : MonoBehaviour
         etoiles = etoilesDebutNiveau;
         textEtoiles.text = etoiles.ToString("0");
     }
+
+
 }
